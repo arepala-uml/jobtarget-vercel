@@ -10,7 +10,8 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app)
+#CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "https://jobtarget-vercel-frontend.vercel.app/"}})
 port = int(os.getenv("FLASK_APP_PORT", 5000))
 
 base_path = os.path.dirname(os.path.abspath(__file__))
